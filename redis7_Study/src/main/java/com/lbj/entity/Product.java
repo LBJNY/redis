@@ -1,4 +1,4 @@
-package com.atguigu.redis7.entities;
+package com.lbj.entity;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
