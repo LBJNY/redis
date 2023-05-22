@@ -1,7 +1,7 @@
 package com.lbj.config;
 
 /**
- * @auther zzyy
+ * @auther libaojie
  * @create 2022-12-14 20:50
  */
 
@@ -36,16 +36,16 @@ public class SwaggerConfig
                 .apiInfo(apiInfo())
                 .enable(enabled)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.atguigu.redis7")) //你自己的package
+                .apis(RequestHandlerSelectors.basePackage("com.lbj.redis7")) //你自己的package
                 .paths(PathSelectors.any())
                 .build();
     }
     public ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("springboot利用swagger2构建api接口文档 "+"\t"+ DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now()))
-                .description("springboot+redis整合,有问题给管理员阳哥邮件:zzyybs@126.com")
+                .description("")
                 .version("1.0")
-                .termsOfServiceUrl("https://www.atguigu.com/")
+                .termsOfServiceUrl("")
                 .build();
     }
 }

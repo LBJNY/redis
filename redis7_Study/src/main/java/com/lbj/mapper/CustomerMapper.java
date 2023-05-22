@@ -1,6 +1,6 @@
-package com.atguigu.redis7.mapper;
+package com.lbj.mapper;
 
-import com.atguigu.redis7.entities.Customer;
+import com.lbj.entity.Customer;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface CustomerMapper extends Mapper<Customer> {

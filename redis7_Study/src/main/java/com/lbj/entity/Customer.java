@@ -6,6 +6,9 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author libaojie
+ */
 @Table(name = "t_customer")
 public class Customer implements Serializable
 {
