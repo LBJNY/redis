@@ -35,8 +35,8 @@ public class OrderService {
         String key = ORDER_KEY + id;
         String value = "测试订单" + serialNo;
         redisTemplate.opsForValue().set(key, value);
-        log.info("key:{}", key);
-        log.info("value:{}", value);
+        System.out.printf("key:{}", key);
+        System.out.printf("value:{}", value);
     }
 
     public String getOrderById(Integer id) {

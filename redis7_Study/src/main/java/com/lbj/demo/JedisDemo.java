@@ -23,7 +23,7 @@ public class JedisDemo {
         Jedis jedis = new Jedis("124.222.229.179", 6379);
 
         //2.设置密码
-        jedis.auth("lbj0307");
+        jedis.auth("");
 
         //3.操作
         System.out.println(jedis.ping());

@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class RedisUtils {
     public static final String REDIS_IP_ADDR = "124.222.229.179";
-    public static final String REDIS_pwd = "lbj0307";
+    public static final String REDIS_pwd = "";
     public static JedisPool jedisPool;
 
     static {

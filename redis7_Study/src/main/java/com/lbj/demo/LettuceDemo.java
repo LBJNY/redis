@@ -25,7 +25,7 @@ public class LettuceDemo {
         RedisURI uri = RedisURI.Builder
                 .redis("124.222.229.179")
                 .withPort(6379)
-                .withAuthentication("default", "lbj0307")
+                .withAuthentication("default", "")
                 .build();
         //2.创建链接客户端
         RedisClient redisClient = RedisClient.create(uri);
@@ -49,6 +49,6 @@ public class LettuceDemo {
         System.out.println(keys);
         //4.关闭释放资源
         connect.close();
-        redisClient.close();
+//        redisClient.close();
     }
 }
