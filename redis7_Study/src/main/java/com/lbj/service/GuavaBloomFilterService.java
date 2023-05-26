@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * @author libaojie
  * @auther lbj
  */
 @Service
@@ -40,18 +41,41 @@ public class GuavaBloomFilterService {
 
         Set<Integer> sets = new HashSet<>();
         int hashCode;
-        for (int i = 0; i < 200000; i++)
-        {
+        for (int i = 0; i < 200000; i++) {
             hashCode = new Object().hashCode();
-            if(sets.contains(hashCode))
-            {
-                System.out.println("运行到第: "+i+" 次出现hash冲突,hashcode: "+hashCode);
+            if (sets.contains(hashCode)) {
+                System.out.println("运行到第: " + i + " 次出现hash冲突,hashcode: " + hashCode);
                 continue;
             }
             sets.add(hashCode);
         }
     }
 
+    //1 定义一个常量
+    public static final int _1W = 10000;
+    //2 定义我们guava布隆过滤器，初始容量
+    public static final int SIZE = 100 * _1W;
+    //3 误判率，它越小误判的个数也就越少(思考，是否可以是无限小？？没有误判岂不是更好)
+    public static double fpp = 0.01;//0.01 0.000000000000001
+    //4 创建guava布隆过滤器
+    private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), SIZE, fpp);
+
+
     public void guavaBloomFilter() {
+        //1 先让bloomFilter加入100W白名单数据
+        for (int i = 1; i <= SIZE; i++) {
+            bloomFilter.put(i);
+        }
+        //2 故意取10W个不在合法范围内的数据,来进行误判率的演示
+        ArrayList<Integer> list = new ArrayList<>(10 * _1W);
+
+        //3 验证
+        for (int i = SIZE + 1; i <= SIZE + (10 * _1W); i++) {
+            if (bloomFilter.mightContain(i)) {
+                System.out.printf("被误判了:{}", i);
+                list.add(i);
+            }
+        }
+        System.out.printf("误判总数量:{}", list.size());
     }
 }

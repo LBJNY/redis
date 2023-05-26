@@ -20,7 +20,6 @@ public class CheckUtils {
         int hashValue = Math.abs(key.hashCode());
         long index = (long) (hashValue % Math.pow(2, 32));
         boolean existOK = redisTemplate.opsForValue().getBit(checkItem, index);
-//        log.info("--->key:" + key + " 对应坑位下标index: " + index + " 是否存在：" + existOK);
         System.out.println("--->key:" + key + " 对应坑位下标index: " + index + " 是否存在：" + existOK);
         return existOK;
     }
